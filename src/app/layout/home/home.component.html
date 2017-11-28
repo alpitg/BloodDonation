@@ -44,19 +44,56 @@
 <main>
   <div class="container" style="height:1300px;">
     <div class="row mt-5 pt-5">
-      <div class="col text-center">
+      <div class="col text-left">
         <h2>This Navbar is fixed</h2>
         <h5>It will always stay visible on the top, even when you scroll down</h5>
         <br>
         <p>Full page intro with background image will be always displayed in full screen mode, regardless of device </p>
 
+        <br>
+        <br>
 
         <div class="row">
           <div class="col-md-9">
-sds
+
+
+
+            <dx-data-grid id="gridContainer" [dataSource]="dataSource" keyExpr="ID" [allowColumnReordering]="true" (onEditingStart)="logEvent('EditingStart')"
+              (onInitNewRow)="logEvent('InitNewRow')" (onRowInserting)="logEvent('RowInserting')" (onRowInserted)="logEvent('RowInserted')"
+              (onRowUpdating)="logEvent('RowUpdating')" (onRowUpdated)="logEvent('RowUpdated')" (onRowRemoving)="logEvent('RowRemoving')"
+              (onRowRemoved)="logEvent('RowRemoved')">
+
+              <dxo-filter-row visible="true" [applyFilter]="currentFilter"></dxo-filter-row>
+              <dxo-header-filter visible="true"></dxo-header-filter>
+              <!-- <dxo-search-panel visible="true" [width]="240" placeholder="Search..."></dxo-search-panel> -->
+
+            
+
+              <dxo-paging [enabled]="true"></dxo-paging>
+              <!-- <dxo-editing mode="popup" [allowUpdating]="true" [allowDeleting]="true" [allowAdding]="true">
+              </dxo-editing> -->
+
+              <dxi-column dataField="Prefix" caption="Title"></dxi-column>
+              <dxi-column dataField="FirstName"></dxi-column>
+              <dxi-column dataField="LastName"></dxi-column>
+              <dxi-column dataField="Position" [width]="130"></dxi-column>
+              <dxi-column dataField="StateID" caption="State" [width]="125">
+                <dxo-lookup [dataSource]="states" displayExpr="Name" valueExpr="ID">
+                </dxo-lookup>
+              </dxi-column>
+              <dxi-column dataField="BirthDate" [width]="125" dataType="date">
+              </dxi-column>
+            </dx-data-grid>
+
+
+
+
+
+
+
           </div>
           <div class="col-md-3">
-dgf
+            dgf
           </div>
         </div>
 
